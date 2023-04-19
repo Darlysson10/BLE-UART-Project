@@ -211,7 +211,7 @@ void device_found(const bt_addr_le_t *addr, int8_t rssi, uint8_t type, struct ne
     }
 
     if (rssi < -70) {
-        return; // sinal muito fraco
+        return; 
     }
 
     if (bt_le_scan_stop()) {
