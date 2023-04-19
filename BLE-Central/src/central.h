@@ -18,10 +18,10 @@
 #include <zephyr/types.h>      // Define tipos básicos de dados
 
 // Define macros para flags atômicas
-#define CFLAG(flag) static atomic_t flag = ATOMIC_INIT(false)
-#define SFLAG(flag) atomic_set(&flag, true)
-#define UFLAG(flag) atomic_set(&flag, false)
-#define WFLAG(flag) \
+#define CFLAG(flag) static atomic_t flag = ATOMIC_INIT(false) //Define uma variável como atômica e como false, além de torna acessível em todo escopo da função
+#define SFLAG(flag) atomic_set(&flag, true) // Define o valor de uma variável atômica como true
+#define UFLAG(flag) atomic_set(&flag, false) // Define uma variável atômica como false
+#define WFLAG(flag) \ // Faz um loop enquanto o valor de uma variável atômica for false, com uma pausa de 1 ms entre cada iteração, usada para controlar sincronização entre threads
 	while (!atomic_get(&flag)) { \
 		k_sleep(K_MSEC(1)); \
 	}
