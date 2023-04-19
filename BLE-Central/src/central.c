@@ -42,7 +42,7 @@ void subscribe(struct bt_conn *conn, uint8_t err, struct bt_gatt_write_params *p
         printk("Subscribe failed (err %d)\n", err);
     }
 
-    // Define a flag subscribed_f como falsa.
+    // Define a flag subscribed_f como verdadeira.
     SFLAG(subscribed_f);
 
     // Verifica se os parâmetros de gravação são nulos.
